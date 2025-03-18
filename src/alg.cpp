@@ -24,9 +24,9 @@ uint64_t nPrime(uint64_t n) {
   while (true) {
     if (checkPrime(candidate)) {
       ++count;
-    if (count == n)
-	  return candidate;
-	}
+      if (count == n)
+        return candidate;
+    }
     candidate++;
   }
   return 0;
@@ -48,12 +48,12 @@ uint64_t sumPrime(uint64_t hbound) {
   is_prime[0] = false;
   if (hbound > 1)
     is_prime[1] = false;
-    for (uint64_t i = 2; i * i < hbound; i++) {
-      if (is_prime[i]) {
-        for (uint64_t j = i * i; j < hbound; j += i)
-          is_prime[j] = false;
-      }
+  for (uint64_t i = 2; i * i < hbound; i++) {
+    if (is_prime[i]) {
+      for (uint64_t j = i * i; j < hbound; j += i)
+        is_prime[j] = false;
     }
+  }
   uint64_t sum = 0;
   for (uint64_t i = 2; i < hbound; i++) {
     if (is_prime[i])
